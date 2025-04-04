@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { UserDataContext } from "../context/UserContext";
 
 const UserSignup = () => {
     const [email, setEmail] = useState("");
@@ -8,18 +9,38 @@ const UserSignup = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
 
-    const [userData, setUserData] = useState({});
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const { user, setUser } = useContext(UserDataContext);
+
+    const handleSubmit = async (e) => {
+        console.log(import.meta.env);
+
         e.preventDefault();
-        setUserData({
+        const newUser = {
             fullName: {
                 firstName,
                 lastName,
             },
             email,
             password,
-        });
+        };
+
+        console.log("ENV Base URL:", import.meta.env.VITE_BASE_URL);
+
+        try {
+            const response = await axios.post(
+                `${import.meta.env.VITE_BASE_URL}/users/register`,
+                newUser
+            );
+            if (response.status === 201) {
+                const data = response.data;
+                setUser(data.user);
+                navigate("/home");
+            }
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (

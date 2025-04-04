@@ -9,7 +9,7 @@ module.exports.registerCaptain = async (req, res) => {
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { fullname, email, password, vehicle } = req.body;
+    const { fullName, email, password, vehicle } = req.body;
 
     const captainExists = await CaptainModel.findOne({ email });
     if (captainExists) {
@@ -19,8 +19,8 @@ module.exports.registerCaptain = async (req, res) => {
     const hashedPassword = await CaptainModel.hashPassword(password);
 
     const captain = await CaptainService.createCaptain({
-        firstname: fullname.firstname,
-        lastname: fullname.lastname,
+        firstName: fullName.firstName,
+        lastName: fullName.lastName,
         email,
         password: hashedPassword,
         color: vehicle.color,

@@ -14,9 +14,9 @@ This endpoint registers a new user by validating the incoming data, hashing the 
 
 ### Request Data
 
--   **fullname** (object, required)
-    -   **firstname** (string, required): Must be at least 3 characters long.
-    -   **lastname** (string, optional): If provided, it should be at least 3 characters long.
+-   **fullName** (object, required)
+    -   **firstName** (string, required): Must be at least 3 characters long.
+    -   **lastName** (string, optional): If provided, it should be at least 3 characters long.
 -   **email** (string, required): Must be a valid email and at least 5 characters long.
 -   **password** (string, required): Must be at least 6 characters long.
 
@@ -24,9 +24,9 @@ This endpoint registers a new user by validating the incoming data, hashing the 
 
 ```json
 {
-    "fullname": {
-        "firstname": "John",
-        "lastname": "Doe"
+    "fullName": {
+        "firstName": "John",
+        "lastName": "Doe"
     },
     "email": "john.doe@example.com",
     "password": "yourpassword"
@@ -44,9 +44,9 @@ This endpoint registers a new user by validating the incoming data, hashing the 
 {
     "user": {
         "_id": "userId",
-        "fullname": {
-            "firstname": "John",
-            "lastname": "Doe"
+        "fullName": {
+            "firstName": "John",
+            "lastName": "Doe"
         },
         "email": "john.doe@example.com"
     },
@@ -64,7 +64,7 @@ This endpoint registers a new user by validating the incoming data, hashing the 
         "errors": [
             {
                 "msg": "First Name must be at least 3 chars long",
-                "param": "fullname.firstname",
+                "param": "fullName.firstName",
                 "location": "body"
             }
         ]
@@ -114,9 +114,9 @@ This endpoint allows an existing user to log in by validating their email and pa
 {
     "user": {
         "_id": "userId",
-        "fullname": {
-            "firstname": "John",
-            "lastname": "Doe"
+        "fullName": {
+            "firstName": "John",
+            "lastName": "Doe"
         },
         "email": "john.doe@example.com"
     },
@@ -181,9 +181,9 @@ This endpoint retrieves the profile of the currently authenticated user.
 ```json
 {
     "_id": "userId",
-    "fullname": {
-        "firstname": "John",
-        "lastname": "Doe"
+    "fullName": {
+        "firstName": "John",
+        "lastName": "Doe"
     },
     "email": "john.doe@example.com"
 }
@@ -250,9 +250,9 @@ This endpoint registers a new captain by validating the incoming data, hashing t
 
 ### Request Data
 
--   **fullname** (object, required)
-    -   **firstname** (string, required): Must be at least 3 characters long.
-    -   **lastname** (string, optional): If provided, it should be at least 3 characters long.
+-   **fullName** (object, required)
+    -   **firstName** (string, required): Must be at least 3 characters long.
+    -   **lastName** (string, optional): If provided, it should be at least 3 characters long.
 -   **email** (string, required): Must be a valid email and at least 5 characters long.
 -   **password** (string, required): Must be at least 6 characters long.
 -   **vehicle** (object, required)
@@ -265,9 +265,9 @@ This endpoint registers a new captain by validating the incoming data, hashing t
 
 ```json
 {
-    "fullname": {
-        "firstname": "Jane",
-        "lastname": "Doe"
+    "fullName": {
+        "firstName": "Jane",
+        "lastName": "Doe"
     },
     "email": "jane.doe@example.com",
     "password": "securepassword",
@@ -291,9 +291,9 @@ This endpoint registers a new captain by validating the incoming data, hashing t
 {
     "captain": {
         "_id": "captainId",
-        "fullname": {
-            "firstname": "Jane",
-            "lastname": "Doe"
+        "fullName": {
+            "firstName": "Jane",
+            "lastName": "Doe"
         },
         "email": "jane.doe@example.com",
         "vehicle": {
@@ -317,7 +317,7 @@ This endpoint registers a new captain by validating the incoming data, hashing t
         "errors": [
             {
                 "msg": "First Name must be at least 3 chars long",
-                "param": "fullname.firstname",
+                "param": "fullName.firstName",
                 "location": "body"
             }
         ]
@@ -367,9 +367,9 @@ This endpoint allows an existing captain to log in by validating their email and
 {
     "captain": {
         "_id": "captainId",
-        "fullname": {
-            "firstname": "Jane",
-            "lastname": "Doe"
+        "fullName": {
+            "firstName": "Jane",
+            "lastName": "Doe"
         },
         "email": "jane.doe@example.com",
         "vehicle": {
@@ -440,9 +440,9 @@ This endpoint retrieves the profile of the currently authenticated captain.
 ```json
 {
     "_id": "captainId",
-    "fullname": {
-        "firstname": "Jane",
-        "lastname": "Doe"
+    "fullName": {
+        "firstName": "Jane",
+        "lastName": "Doe"
     },
     "email": "jane.doe@example.com",
     "vehicle": {

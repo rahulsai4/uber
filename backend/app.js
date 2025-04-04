@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const morgan = require("morgan");
 const connectToDb = require("./db/db");
 const userRouter = require("./routes/user.route");
 const captainRouter = require("./routes/captain.routes");
@@ -13,6 +14,7 @@ connectToDb();
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+app.use(morgan("tiny"));
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/users", userRouter);
